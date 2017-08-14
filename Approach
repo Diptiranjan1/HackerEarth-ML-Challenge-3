@@ -1,0 +1,20 @@
+
+PREPROCESSING
+1)Initially by making a table between browserid and devid we find that browserid having devid with none value have a single type of device. So we replace it with respective devices.
+
+2)we find leaks in data like siteid = 'IE' and 'Internet Explorer'. We bring these under one category.
+
+3)Fill the none/null values as given in the sample code.
+
+
+MODEL TRAINING
+1) We have 3 models -> CATBOOST 1, LIGHTGBM, CATBOOST 2
+2) Data Distribution between these 3 -> CATBOSST 1 -> 4000000
+					LIGHTGBM   -> 4000000
+					CATBOOST 2 -> 2000000
+
+3) We have made Catboost 1 the strongest followed by lightgbm then catboost 2.
+4) Results from each are added according to this equation -
+	Probability = (CatBoost1*.41 + Lightgbm*.59)*.41 + Catboost2*.59 
+
+ 
